@@ -1,0 +1,514 @@
+<!-- pulsar theme by alex baldwin -->
+<!-- bldwn.co -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{block:PostTitle}{PostTitle} | {/block:PostTitle}{Title}</title>
+    <meta name="description" content="{MetaDescription}" />
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    
+    <meta name="if:Show description" content="1"/>
+    <meta name="if:Show archive link" content="0"/>
+    <meta name="if:Nav under header" content="0"/>
+    <meta name="if:Nav all lowercase" content="0"/>
+    <meta name="if:Title all caps" content="1"/>
+    <meta name="if:Meta all caps" content="1"/>
+    <meta name="if:Force full width images" content="1"/>
+    <meta name="if:Translucent post meta" content="1"/>
+    <meta name="if:Show who I reblogged from" content="1"/>
+    <meta name="if:Show theme credit" content="1"/>
+    
+    <meta name="color:Gradient from" content="#fe6299"/>
+    <meta name="color:Gradient to" content="#48a1b4"/>
+    <meta name="color:Text" content="#FFFFFF"/>
+    <meta name="color:Links" content="#FFFFFF"/>
+    
+    <meta name="select:Header Font" content="montserrat" title="Montserrat">
+    <meta name="select:Header Font" content="helvetica" title="Helvetica">
+    <meta name="select:Header Font" content="roboto" title="Roboto">
+    <meta name="select:Header Font" content="abril_fatface" title="Abril Fatface">
+    <meta name="select:Header Font" content="merriweather" title="Merriweather">
+    
+    <meta name="select:Body Font" content="montserrat" title="Montserrat">
+    <meta name="select:Body Font" content="helvetica" title="Helvetica">
+    <meta name="select:Body Font" content="roboto" title="Roboto">
+    <meta name="select:Body Font" content="merriweather" title="Merriweather">
+    <meta name="select:Body Font" content="georgia" title="Georgia">
+    
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Abril+Fatface|Merriweather:400,400italic,700,700italic|Roboto:400,400italic,700italic,700" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <style type="text/css">
+    
+    /* BODY */
+    
+    * {box-sizing:border-box;margin:0;padding:0;border:0;}
+    body, html {min-height:100%;}
+    
+    body {
+        height:100%;
+        background-image:linear-gradient(65deg, {color:Gradient from} 0%, {color:Gradient to} 100%);
+        background-attachment:fixed;
+        color:{color:Text};
+        font-size:16px;
+        width:540px;
+        margin:4% auto 1% auto;
+    }
+    
+    body.montserrat {font-family:'Montserrat',sans-serif;}
+    body.helvetica {font-family:'Helvetica',sans-serif;}
+    body.roboto {font-family:'Roboto',sans-serif;}
+    body.merriweather {font-family:'Merriweather',Georgia,serif;}
+    body.georgia {font-family:Georgia,serif;}
+    
+    a {color:{color:Links};}
+    
+    /* HEADER */
+    
+    header {
+        border-bottom:{color:Text} 3px solid;
+        padding:2% 0;
+    }
+    header h1 {
+        font-size:2em;
+    }
+    header h1 a {
+        text-decoration:none;
+        color:{color:Text};
+    }
+    header nav {
+        margin-top:0.3em;
+    }
+    header nav a {
+        color:{color:Text};
+        text-decoration:none;
+        margin-right:1.5em;
+        padding-left:1px;
+        line-height:2em;
+        border-bottom:2px solid transparent;
+        transition:100ms ease-in;
+    }
+    header nav a:hover {border-bottom-color:{color:Text};}
+    header p {
+        text-transform:none!important;
+        margin:0.5em 0 0.5em 0;
+    }
+    header p img {max-width:540px;}
+    
+    {block:IfNavUnderHeader}
+    header {margin-bottom:5em;}
+    header nav {
+        float:right;
+        margin-top:1.5em;
+    }
+    header nav a {margin-right:0;margin-left:1.5em;}
+    {/block:IfNavUnderHeader}
+    
+    header.montserrat h1 {font-family:'Montserrat',sans-serif;}
+    header.helvetica h1 {font-family:'Helvetica',sans-serif;}
+    header.roboto h1 {font-family:'Roboto',sans-serif;}
+    header.abril_fatface h1 {font-family:'Abril Fatface',Georgia,serif;font-size:3em;}
+    header.merriweather h1 {font-family:'Merriweather',Georgia,serif;}
+    
+    {block:IfTitleAllCaps}
+    header h1 {text-transform:uppercase;}
+    {/block:IfTitleAllCaps}
+    
+    /* POSTS */
+    /* formatting */
+    article.post {
+        width:540px;
+        margin-top:3em;
+    }
+    article.post h1 {
+        font-weight:400;
+        font-size:1.6em;
+    }
+    article.post h2 {
+        font-weight:400;
+        margin-top:0.4em;
+        font-size:1.3em;
+    }
+    article.post p {
+        margin-top:0.6em;
+        padding:2px;
+    }
+    article.post p a, 
+    article.post span a, 
+    article.post ul a,
+    article.post ol a,
+    article.post h1 a,
+    article.post h2 a {
+        color:{color:Links};
+        opacity:0.7;
+        text-decoration:none;
+        border-bottom:2px solid {color:Links};
+        transition:100ms ease-in;
+    }
+    article.post p a:hover, 
+    article.post span a:hover, 
+    article.post ul a:hover, 
+    article.post ol a:hover, 
+    article.post h1 a:hover, 
+    article.post h2 a:hover {
+        opacity:1;
+    }
+    article.post blockquote {
+        margin:1em 0 0 0.5em;
+        padding-left:1em;
+        border-left:rgba({RGBcolor:Text}, 0.4) solid 3px;
+    }
+    article.post blockquote blockquote {margin-left:0.1em;}
+    article.post figure {margin-top:1em;}
+    article.post figure img {max-width:100%;}
+    article.post figure:first-child {margin-top:0;}
+    article.post blockquote+img,
+    article.post blockquote>img {max-width:100%;margin-top:1em;}
+    article.post pre {
+        margin-top:0.5em;
+        padding:1em;
+        padding-bottom:0.7em;
+        background:rgba({RGBcolor:Text}, 0.1);
+        line-height:1.3em;
+        overflow-x:scroll;
+    }
+    article.post pre::-webkit-scrollbar {
+        height:3px;
+        background:rgba({RGBcolor:Text}, 0.1);
+    }
+    article.post pre::-webkit-scrollbar-thumb {background:rgba({RGBcolor:Text}, 0.5);}
+    article.post ul,article.post ol {margin:0.7em 0 0 2em;}
+    article.post ul li,article.post ol li {
+        line-height:1.3em;
+    }
+    article.post hr {
+        height:1px;
+        background:{color:Text};
+        opacity:0.2;
+        margin-top:1em;
+        margin-bottom:1em;
+        width:75%;
+        margin:1em auto;
+    }
+    article.post br {line-height:1.4em;}
+    /* meta */
+    article.post div.meta {
+        border-top:3px solid {color:Text};
+        margin-top:1em;
+        padding-top:7px;
+        font-size:0.75em;
+    }
+    article.post div.meta a.notes, article.post div.meta a.time {
+        text-decoration:none;
+        color:{color:Text};
+        {block:IfTranslucentPostMeta}
+        opacity:0.6;
+        {/block:IfTranslucentPostMeta}
+    }
+    article.post div.meta a.time {float:right;}
+    article.post div.meta .tags {
+        display:block;
+        padding-top:3px;
+    }
+    article.post div.meta .tags a {
+        text-decoration:none;
+        color:{color:Text};
+        opacity:0.8;
+        {block:IfTranslucentPostMeta}
+        opacity:0.3;
+        {/block:IfTranslucentPostMeta}
+        margin-right:0.7em;
+        border:0;
+    }
+    article.post div.meta .tags a:hover {
+        opacity:1;
+        {block:IfTranslucentPostMeta}
+        opacity:0.8;
+        {/block:IfTranslucentPostMeta}
+    }
+    article.post div.meta .reblog {
+        display:block;
+        {block:IfTranslucentPostMeta}
+        opacity:0.6;
+        {/block:IfTranslucentPostMeta}
+        text-transform:lowercase;
+        margin-bottom:3px;
+    }
+    article.post div.meta .reblog a {border:none;}
+    /* photo posts */
+    article.post.photo img, article.post.photoset img {
+        max-width:540px;
+        {block:IfForceFullWidthImages}
+        width:540px;
+        {/block:IfForceFullWidthImages}
+    }
+    /* quote posts */
+    article.post.quote > span {
+        font-size:1.3em;
+        display:block;
+    }
+    article.post.quote > span:before {
+        content:'\201C';
+        font-size:2em;
+        line-height:0.25em;
+        vertical-align:-0.35em;
+        padding-right:0.05em;
+    }
+    article.post.quote > span:after {
+        content:'\201D';
+        font-size:2em;
+        line-height:0.25em;
+        vertical-align:-0.35em;
+        padding-left:0.1em;
+    }
+    article.post.quote > span + p:before {
+        content:'\2014';
+        padding:0 0.5em;
+    }
+    /* chat posts */
+    article.post.chat p {
+        border-top:rgba({RGBcolor:Text}, 0.4) 2px solid;
+        padding-top:0.6em;
+    }
+    article.post.chat p:first-child {
+        border-top-width:0;
+        padding-top:0;
+    }
+    article.post.chat p b {opacity:0.8;}
+    /* link posts */
+    article.post.link h2 a {
+        opacity:1;
+        border-bottom:0;
+        font-style:italic;
+    }
+    article.post.link h2:after {
+        content:'\2192';
+        padding-left:0.3em;
+        font-size:1.5em;
+        line-height:0.5em;
+        vertical-align:-0.15em;
+    }
+    /* audio posts */
+    article.post.audio iframe {
+        width:540px;
+    }
+    /* video posts */
+    article.post.video .iframe {
+        
+    }
+    /* answer posts */
+    article.post.answer p.question {
+        border-bottom:rgba({RGBcolor:Text}, 0.4) 2px solid;
+        padding-bottom:0.9em;
+    }
+    
+    /* FOOTER */
+    
+    footer {padding-top:3em;}
+    footer a.page {
+        text-decoration:none;
+        color:{color:Links};
+        font-size:0.75em;
+        opacity:0.8;
+        margin-bottom:5em;
+    }
+    footer a.page.previous {float:left;}
+    footer a.page.next {float:right;}
+    footer p {
+        text-align:center;
+        margin:5em 0 1em 0;
+        font-size:0.65em;
+        opacity:0.5;
+    }
+
+    /* NOTES */
+    
+    ol.notes {
+        list-style-type:none;
+        opacity:0.9;
+        font-size:0.75em;
+        margin:4em 0;
+    }
+    ol.notes a {color:{color:Links};opacity:0.7;}
+    ol.notes li {padding:0.5em 0;}
+    ol.notes img {display:none;}
+    ol.notes .more_notes_link_container {margin:3em;}
+    ol.notes a.more_notes_link {
+        text-decoration:none;
+        border:2px solid #fff;
+        padding:0.8em 1em;
+    }
+    
+    /* OTHER */
+    
+    .daypage, .tagpage {
+        display:block;
+        margin-top:2em;
+        font-size:1.5em;
+    }
+    
+    {block:IfMetaAllCaps}
+    body header nav,
+    body article.post.chat p b, 
+    body footer a.page, 
+    body article.post div.meta,
+    body article.post div.meta .reblog, 
+    body header nav,
+    body article.post.chat p b, 
+    body footer a.page, 
+    body article.post div.meta,
+    body article.post div.meta .reblog {text-transform:uppercase!important;}
+    {/block:IfMetaAllCaps}
+    
+    {block:IfNavAllLowercase}
+    body header nav {text-transform:lowercase!important;}
+    {/block:IfNavAllLowercase}
+    
+    {CustomCSS}
+    
+    </style>
+    <script>
+    $(function(){
+        // make audio posts a little nicer
+    	$('iframe.tumblr_audio_player').load(function(){
+    		$(this).contents().find('.audio_controls,.audio_visualizer').css({'border-color':'transparent'});
+    	});
+    	// resize video
+    	$('iframe.tumblr_video_iframe').each(function(){
+    	    $(this).css({'width':'540px','height':($(this).height() * 0.7723)+'px'});
+    	});
+    });        
+    </script>
+</head>
+<body class="{select:Body Font}">
+<header class="{select:Header Font}">
+	<h1><a href="{BlogURL}">{Title}</a></h1>
+	{block:IfShowDescription}
+	<p>{Description}</p>
+	{/block:IfShowDescription}
+	<nav>
+    {block:AskEnabled}
+        <a href="/ask">{AskLabel}</a>
+    {/block:AskEnabled}    
+    {block:SubmitEnabled}
+        <a href="/submit">{SubmitLabel}</a>
+    {/block:SubmitEnabled}    
+    {block:HasPages}
+        {block:Pages}
+            <a href="{URL}">{Label}</a>
+        {/block:Pages}
+    {/block:HasPages}
+    {block:IfShowArchiveLink}
+        <a href="/archive">{lang:Archive}</a>
+    {/block:IfShowArchiveLink}
+	</nav>
+</header>
+{block:DayPage}<span class="daypage">{Month} {DayOfMonth}, {Year}</span>{/block:DayPage}
+{block:TagPage}<span class="tagpage">#{Tag}</span>{/block:TagPage}
+<section class="posts">
+{block:Posts}
+    <article class="post {PostType}">
+    {block:Text} 
+	    {block:Title}<h1>{Title}</h1>{/block:Title}
+        {Body}
+	{/block:Text}
+    {block:Photo}
+        {LinkOpenTag}<img src="{PhotoURL-1280}">{LinkCloseTag}
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+    {/block:Photo}
+    {block:Panorama}
+        {LinkOpenTag}<img src="{PhotoURL-1280}">{LinkCloseTag}
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+    {/block:Panorama}
+    {block:Photoset}
+        {Photoset}
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+    {/block:Photoset}
+    {block:Quote}
+        <span>{Quote}</span>
+        {block:Source}
+            <p>{Source}</p>
+        {/block:Source}
+    {/block:Quote} 
+    {block:Link} 
+	    <h1><a href="{URL}">{Name}</a></h1>
+        {block:Description}
+            {Description}
+        {/block:Description}
+	{/block:Link}
+    {block:Chat} 
+	    {block:Title}<h1>{Title}</h1>{/block:Title}
+        {block:Lines}
+            <p>{block:Label}<b>{Label}</b> {/block:Label}{Line}</p>
+        {/block:Lines}
+	{/block:Chat}
+    {block:Audio}
+        {block:AudioEmbed}
+            {AudioEmbed-640}
+        {/block:AudioEmbed}
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+    {/block:Audio}
+    {block:Video}
+        {VideoEmbed-700}
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+    {/block:Video}
+    {block:Answer}
+        <p class="question">{lang:Asker asked 2}: {Question}</p>
+        {Replies}
+    {/block:Answer}
+    
+	<div class="meta">
+	    {block:IfShowWhoIRebloggedFrom}
+	    {block:RebloggedFrom} 
+	    <span class="reblog">
+            {lang:Reblogged from ReblogParentName 2}{block:ContentSource} {lang:Via} <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
+	    </span>
+	    {/block:RebloggedFrom}
+	    {/block:IfShowWhoIRebloggedFrom}
+	    {block:NoteCount}
+		<a class="notes" href="{Permalink}">{NoteCountWithLabel}</a>
+		{/block:NoteCount}	
+		{block:Date}
+		<a class="time" href="{Permalink}" title="{12Hour}:{Minutes} {CapitalAmPm}, {ShortMonth} {DayOfMonthWithZero} {Year}">{TimeAgo}</a>
+		{/block:Date}
+        {block:HasTags}
+        <span class="tags">
+            {block:Tags}
+            <a href="{TagURL}">#{Tag}</a>
+            {/block:Tags}
+        </span>
+        {/block:HasTags}
+	</div>
+
+	</article>
+	{block:PostNotes}
+	    {PostNotes}
+	{/block:PostNotes}
+	{/block:Posts}
+</section>
+<footer>
+    {block:Pagination}
+        {block:PreviousPage}
+            <a href="{PreviousPage}" class="page prev">previous</a>
+        {/block:PreviousPage}
+        {block:NextPage}
+            <a href="{NextPage}" class="page next">next</a>
+        {/block:NextPage}
+    {/block:Pagination}
+    {block:IfShowThemeCredit}
+    <p>pulsar theme by <a href="http://blog.goose.im/">alex</a></p>
+    {/block:IfShowThemeCredit}
+</footer>
+</body>
+</html>
